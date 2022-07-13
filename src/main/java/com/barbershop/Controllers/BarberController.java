@@ -7,9 +7,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BarberController {
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="orl") String name, Model model) {
+    @GetMapping("/main")
+    public String main(@RequestParam(name = "name", required = false, defaultValue = "привет") String name, Model model) {
         model.addAttribute("name", name);
-        return "greeting";
+        return "main";
+    }
+
+    @GetMapping("/home")
+    public String home(@RequestParam(name = "name", required = false, defaultValue = "orl") String name, Model model) {
+        model.addAttribute("name", "home");
+        return "home";
     }
 }
