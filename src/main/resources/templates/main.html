@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link th:href="@{/styles/mainStyles.css}" rel="stylesheet" / >
+    <link th:href="@{/styles/mainStyles.css}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
@@ -22,15 +22,24 @@
         <p class="time">Ежедневно 10:00-21:00</p>
         <p class="services">Наши услуги</p>
         <div class="links">
-            <div><a> <img src="./haircut.png"> </a>
+            <div><a> <img src="./haircut.png" alt="barbershop"> </a>
                 <p class="signature">Стрижка головы</p></div>
             <div><a> <img src="./beards.png"> </a>
                 <p class="signature">Стрижка бороды</p></div>
             <div><a> <img src="./complex.png"> </a>
                 <p class="signature">Комплексные услуги</p></div>
         </div>
-        <div class="ss"><a class="enrollBtn">Записаться</a></div>
+        <div class="btn"><a class="enrollBtn">Записаться</a></div>
     </div>
+</div>
+<div class="priseList">
+    <table class="priseTable">
+        <caption class="tableLogo"><img src="./logo.png"></caption>
+        <tr class="row" th:each="el:${services}">
+            <td th:text="${el.name}"></td>
+            <td th:text="${el.cost}"></td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

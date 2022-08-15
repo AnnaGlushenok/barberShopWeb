@@ -12,7 +12,6 @@ body {
 }
 
 .leftSide {
-    background: dodgerblue;
     height: 700px;
     width: 983px;
     margin-left: auto;
@@ -73,7 +72,25 @@ body {
     margin-bottom: 35px;
 }
 
-.ss {
+.btn {
     text-align: center;
 }
 
+.priseList{
+    background: #000000;
+    margin: 3.125em auto;
+    width: 1170px;
+}
+
+.priseTable{
+    margin: 0 auto;
+    border: none;
+}
+
+.row:hover{
+    background: #BFBFBF40;
+}
+
+.tableLogo{
+    margin: 1.25em auto;
+}
