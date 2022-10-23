@@ -2,44 +2,81 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link th:href="@{/styles/mainStyles.css}" rel="stylesheet"/>
+    <title>BarberShop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link th:href="@{/styles/mainStyles.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="landingPage">
     <div class="leftSide">
-        <img src="./landingPhoto.png">
+        <img src="./landingPhoto.png" alt="img">
     </div>
+
     <div class="menu">
         <h1 class="caption">BarberShop</h1>
         <p class="address">г. Мозырь, ул. Притыцкого, д.30А.</p>
         <p class="time">Ежедневно 10:00-21:00</p>
         <p class="services">Наши услуги</p>
         <div class="links">
-            <div><a> <img src="./haircut.png" alt="barbershop"> </a>
+            <div class="service"><a> <img src="./haircut.png"> </a>
                 <p class="signature">Стрижка головы</p></div>
-            <div><a> <img src="./beards.png"> </a>
+            <div class="service"><a> <img src="./beards.png"> </a>
                 <p class="signature">Стрижка бороды</p></div>
-            <div><a> <img src="./complex.png"> </a>
+            <div class="service"><a> <img src="./complex.png"> </a>
                 <p class="signature">Комплексные услуги</p></div>
         </div>
-        <div class="btn"><a class="enrollBtn">Записаться</a></div>
+        <a class="enrollBtn cursor">Записаться</a>
     </div>
 </div>
-<div class="priseList">
+
+<div class="priseList cursor">
     <table class="priseTable">
-        <caption class="tableLogo"><img src="./logo.png"></caption>
+        <img class="tableLogo" src="./logo.png">
+        <img class="line" src="hairCutPriseLine.png">
         <tr class="row" th:each="el:${services}">
             <td th:text="${el.name}"></td>
             <td th:text="${el.cost}"></td>
         </tr>
     </table>
+<!--    <table class="priseTable">-->
+<!--        <img class="line" src="./beardCutPriseLine.png">-->
+<!--        <tr class="row" th:each="el:${services}">-->
+<!--            <td th:text="${el.name}"></td>-->
+<!--            <td th:text="${el.cost}"></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <table class="priseTable">-->
+<!--        <img class="line" src="complexLine.png">-->
+<!--        <tr class="row">-->
+<!--            <td th:text="${el.name}"></td>-->
+<!--            <td th:text="${el.cost}"></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+</div>
+
+<p class="teamCaption">Наша команда</p>
+
+<div class="team">
+    <div class="photo"><img src="./people/alex.png" alt="alex"></div>
+    <div class="rightSide">
+        <div class="text">
+            <p class="name">Александр Сигай</p>
+            <p class="motto">Делай то, что любишь и люби то, что делаешь!</p>
+            <p class="description">Записавшись к этому мастеру, во время стрижки Вы можете насладиться непренуждённой
+                беседой на любые темы. Это не отвлечёт Александра от создания его очередного шедевра для Вас. Вы
+                почувствуете на себе столичный уровень, ведь Александр окончил минскую школу барберинга B-school и точно
+                чувстует себя как рыба в воде.</p>
+        </div>
+        <div class="buttons cursor">
+            <a class="buttons__button enroll">Записаться</a>
+            <a class="buttons__button feedbacks">Отзывы</a>
+            <a class="buttons__button works">Работы</a>
+        </div>
+    </div>
 </div>
 </body>
 </html>
