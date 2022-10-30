@@ -13,7 +13,7 @@
 <body>
 <div class="landingPage">
     <div class="leftSide">
-        <img src="./landingPhoto.png" alt="img">
+        <img src="./Безымянный.png" alt="img">
     </div>
 
     <div class="menu">
@@ -36,40 +36,39 @@
 <div class="priseList cursor">
     <table class="priseTable">
         <img class="tableLogo" src="./logo.png">
-        <img class="line" src="hairCutPriseLine.png">
-        <tr class="row" th:each="el:${services}">
-            <td th:text="${el.name}"></td>
-            <td th:text="${el.cost}"></td>
+        <img class="line" src="./lines/hairCutPriseLine.png">
+        <tr class="row" th:each="el:${hair}">
+            <td class="nameCol" th:text="${el.name}"></td>
+            <td class="priseCol" th:text="${el.cost}"></td>
         </tr>
     </table>
-<!--    <table class="priseTable">-->
-<!--        <img class="line" src="./beardCutPriseLine.png">-->
-<!--        <tr class="row" th:each="el:${services}">-->
-<!--            <td th:text="${el.name}"></td>-->
-<!--            <td th:text="${el.cost}"></td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--    <table class="priseTable">-->
-<!--        <img class="line" src="complexLine.png">-->
-<!--        <tr class="row">-->
-<!--            <td th:text="${el.name}"></td>-->
-<!--            <td th:text="${el.cost}"></td>-->
-<!--        </tr>-->
-<!--    </table>-->
+    <table class="priseTable">
+        <img class="line" src="./lines/beardCutPriseLine.png">
+        <tr class="row" th:each="el:${beard}">
+            <td class="nameCol" th:text="${el.name}"></td>
+            <td class="priseCol" th:text="${el.cost}"></td>
+        </tr>
+    </table>
+    <table class="priseTable">
+        <img class="line" src="./lines/complexLine.png">
+        <tr class="row" th:each="el:${complex}">
+            <td class="nameCol" th:text="${el.name}"></td>
+            <td class="priseCol" th:text="${el.cost}"></td>
+        </tr>
+    </table>
 </div>
 
 <p class="teamCaption">Наша команда</p>
 
 <div class="team">
-    <div class="photo"><img src="./people/alex.png" alt="alex"></div>
-    <div class="rightSide">
+    <div class="container" th:each="el:${people}">
+        <div class="photo">
+            <img src="./people/Alex.png">
+        </div>
         <div class="text">
-            <p class="name">Александр Сигай</p>
-            <p class="motto">Делай то, что любишь и люби то, что делаешь!</p>
-            <p class="description">Записавшись к этому мастеру, во время стрижки Вы можете насладиться непренуждённой
-                беседой на любые темы. Это не отвлечёт Александра от создания его очередного шедевра для Вас. Вы
-                почувствуете на себе столичный уровень, ведь Александр окончил минскую школу барберинга B-school и точно
-                чувстует себя как рыба в воде.</p>
+            <p class="name" th:text="${el.name}"></p>
+            <p class="motto" th:text="${el.motto}"></p>
+            <p class="description" th:text="${el.description}"></p>
         </div>
         <div class="buttons cursor">
             <a class="buttons__button enroll">Записаться</a>
@@ -78,5 +77,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

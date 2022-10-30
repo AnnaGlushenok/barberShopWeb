@@ -1,38 +1,40 @@
 package com.barbershop.Controllers;
 
-import com.barbershop.Classes.Service;
-import com.barbershop.Classes.ServiceResponse;
-import com.barbershop.Classes.ServicesRepository;
-import com.barbershop.Classes.Types;
+import com.barbershop.Classes.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Controller
 public class BarberController {
     @Autowired
-    private ServicesRepository servicesRepository;
-    @PersistenceContext
-    private EntityManager em;
-
+    private ServiceRepository servicesRepository;
+    @Autowired
+    private TypesRepository typesRepository;
+    @Autowired
+    private PeopleRepository peopleRepository;
 
     @GetMapping("/main")
-    public String main(Model model) {
-        List<Service> services = servicesRepository.findAll();
-        //List<ServiceResponse> services1 = getService((new Types()).getName());
-
-        //  services.stream().filter(el -> el.getName().equals(""));
-        model.addAttribute("services", services);
-        return "main";
+    public void main(Model model) {
+        fillTable(model);
+        fillTeam(model);
     }
 
-//    @GetMapping("/a:{name}")
-//    public List<ServiceResponse> getService(String name) {
-//        return servicesRepository.getNameCostService(name);
-//    }
+    public void fillTable(Model model) {
+        List<String> types = typesRepository.getTypes();
+        List<Service> hair = servicesRepository.findByType(types.get(0));
+        List<Service> beard = servicesRepository.findByType(types.get(1));
+        List<Service> complex = servicesRepository.findByType(types.get(2));
+        model.addAttribute("hair", hair);
+        model.addAttribute("beard", beard);
+        model.addAttribute("complex", complex);
+    }
+
+    public void fillTeam(Model model) {
+        List<People> people = peopleRepository.findAll();
+        model.addAttribute("people", people);
+    }
 }

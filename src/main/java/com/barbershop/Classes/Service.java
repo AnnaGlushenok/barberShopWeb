@@ -1,24 +1,22 @@
 package com.barbershop.Classes;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "services")
+@Table(name = "service_view")
 public class Service {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-    private Integer idType;
     private String cost;
     private String name;
+    private String type;
 
     public Long getId() {
         return id;
-    }
-
-    public Integer getIdType() {
-        return idType;
     }
 
     public String getName() {
@@ -29,12 +27,12 @@ public class Service {
         return cost;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getType() {
+        return type;
     }
 
-    public void setIdType(Integer idType) {
-        this.idType = idType;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -43,5 +41,9 @@ public class Service {
 
     public void setCost(String cost) {
         this.cost = cost;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

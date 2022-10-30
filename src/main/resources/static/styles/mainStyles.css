@@ -143,10 +143,16 @@ body {
 
 .team {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 1em auto;
   width: 1170px;
   height: 720px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  margin: 1em auto;
 }
 
 .photo {
@@ -180,7 +186,6 @@ body {
 }
 
 .motto {
-  position: absolute;
   top: 20%;
   transform: translateY(-50%);
   text-align: right;
@@ -191,7 +196,6 @@ body {
 }
 
 .description {
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 18px;
@@ -230,5 +234,3 @@ body {
 .buttons .works {
   width: 120px;
 }
-
-/*# sourceMappingURL=style.css.map */
