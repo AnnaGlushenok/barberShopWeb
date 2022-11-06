@@ -62,18 +62,17 @@
 
 <div class="team">
     <div class="container" th:each="el:${people}">
-        <div class="photo">
-            <img src="./people/Alex.png">
-        </div>
-        <div class="text">
-            <p class="name" th:text="${el.name}"></p>
+        <img class="photo" th:src="${el.path}">
+        <div class="rightSide">
+            <h2 class="container__name" th:text="${el.name}"></h2>
             <p class="motto" th:text="${el.motto}"></p>
             <p class="description" th:text="${el.description}"></p>
-        </div>
-        <div class="buttons cursor">
-            <a class="buttons__button enroll">Записаться</a>
-            <a class="buttons__button feedbacks">Отзывы</a>
-            <a class="buttons__button works">Работы</a>
+
+            <div class="buttons">
+                <a class="buttons__button enroll">Записаться</a>
+                <a class="buttons__button feedbacks">Отзывы</a>
+                <a class="buttons__button works">Работы</a>
+            </div>
         </div>
     </div>
 </div>

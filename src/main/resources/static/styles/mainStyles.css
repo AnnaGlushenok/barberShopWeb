@@ -50,7 +50,7 @@ body {
   font-weight: 100;
   font-size: 14px;
   text-align: center;
-  margin: 10px;
+  margin: 0  0 10px 0;
 }
 
 .time {
@@ -67,18 +67,18 @@ body {
 }
 
 .links {
+  width: 620px;
   display: flex;
-  text-align: center;
+  justify-content: space-around;
   font-size: 14px;
-  margin: 0 50px 0 50px;
 }
 
-.service {
-  margin-right: 5em;
-}
-
-.service:nth-child(3) {
-  margin-right: 0 !important;
+.service{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 160px;
 }
 
 .enrollBtn {
@@ -139,6 +139,7 @@ body {
   text-align: center;
   font-size: 36px;
   color: #3F2706;
+  margin-bottom: 0;
 }
 
 .team {
@@ -153,39 +154,29 @@ body {
   display: flex;
   flex-direction: row;
   margin: 1em auto;
-}
-
-.photo {
-  display: block;
-  width: 570px;
-  height: 712px;
-  margin-right: 5px;
-}
-
-.rightSide {
   position: relative;
-  display: block;
-  width: 570px;
-  height: 712px;
-  margin-left: 15px;
-  padding: 0;
 }
 
-.text {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
+.photo{
+    width: 570px;
+    height: 712px;
 }
 
-.name {
-  font-weight: bold;
-  font-size: 30px;
-  color: #6A542A;
-  margin: 0;
-  padding: 0;
+.rightSide{
+   width: 570px;
+   height: 712px;
+   padding-left: 30px;
+}
+
+.container__name{
+   font-weight: bold;
+   font-size: 30px;
+   color: #6A542A;
+   margin: 0;
 }
 
 .motto {
+  position: absolute;
   top: 20%;
   transform: translateY(-50%);
   text-align: right;
@@ -193,9 +184,11 @@ body {
   font-size: 25px;
   right: 0;
   color: black;
+  width: 570px;
 }
 
 .description {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 18px;
@@ -225,12 +218,23 @@ body {
 }
 .buttons .enroll {
   width: 160px;
-  border-right: 3px solid #A48445;
 }
 .buttons .feedbacks {
   width: 120px;
-  border-right: 3px solid #A48445;
+  position: relative;
 }
+
+.feedbacks::before, .works::before{
+  content: '';
+  display: block;
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  background: #A48445;
+  top: 0;
+  left: -1px;
+}
+
 .buttons .works {
   width: 120px;
 }
